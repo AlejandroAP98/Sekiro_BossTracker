@@ -46,7 +46,7 @@ export default function Footer({ bosses, setBosses }: FooterProps) {
         <p className="text-xs">
           Alejandro Álvarez {new Date().getFullYear()} - All rights reserved
         </p>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 sm:gap-4 flex-wrap">
             <button className="btn btn-primary" onClick={() => exportarProgreso(bosses)}>
             Guardar progreso (.json)
             </button>
