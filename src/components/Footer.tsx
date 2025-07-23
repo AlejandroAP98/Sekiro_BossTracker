@@ -46,12 +46,12 @@ export default function Footer({ bosses, setBosses }: FooterProps) {
         <p className="text-xs">
           Alejandro Álvarez {new Date().getFullYear()} - All rights reserved
         </p>
-        <div className="flex items-center gap-2 sm:gap-4 flex-wrap">
-            <button className="btn btn-primary" onClick={() => exportarProgreso(bosses)}>
-            Guardar progreso (.json)
+        <div className="flex items-center gap-2 sm:gap-4 flex-wrap text-sm">
+            <button className="btn btn-sm btn-primary" onClick={() => exportarProgreso(bosses)}>
+            Guardar progreso
             </button>
-            <label className="btn btn-secondary cursor-pointer">
-            Cargar progreso (.json)
+            <label className="btn btn-sm btn-secondary cursor-pointer">
+            Cargar progreso
             <input
             type="file"
             accept="application/json"
