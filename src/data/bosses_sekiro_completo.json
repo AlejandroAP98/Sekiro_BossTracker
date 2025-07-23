@@ -1,0 +1,599 @@
+{
+    "Boss": 
+    [
+        {
+            "nombre": "Gyoubu Masataka Oniwa",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Gyoubu+Oniwa",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/gyoubu-oniwa-boss-sekiro-wiki-guide-300px.png",
+            "descripcion": "A fearsome opponent riding a sturdy mount and brandishing a long-reaching polearm.",
+            "detalles": {
+                "Location": "Ashina Outskirts",
+                "Deathblow Markers": "2",
+                "Useful Tools": "Shinobi Firecracker",
+                "Reward": "Memory: Gyoubu OniwaMechanical Barrel1000 Exp (NG)15000 Exp (NG+)22500 Exp (NG+2)"
+            }
+        },
+        {
+            "nombre": "Lady Butterfly",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Lady+Butterfly",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/lady-butterflyr-boss-sekiro-wiki-guide-300px.png",
+            "descripcion": "An old acquaintance and agile opponent, unmatched in speed and cunning.",
+            "detalles": {
+                "Location": "Hirata Estate",
+                "Deathblow Markers": "1, Technically 2",
+                "Useful Tools": "Phantom Kunai(when she hovers)Lazulite AxeSnap Seed(phase 2 illusion)",
+                "Reward": "Memory: Lady ButterflySakura Droplet",
+                "XP": "NG: 1500NG+: 15000NG++: 22500"
+            }
+        },
+        {
+            "nombre": "Genichiro Ashina",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Genichiro+Ashina",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/genichiro-ashina-boss-sekiro-wiki-guide-300px.png",
+            "descripcion": "A determined samurai who seeks to gain immortality through the Dragon Heritage.",
+            "detalles": {
+                "Location": "Ashina ReservoirAshina Castle",
+                "Status Abnormalities": "Shock",
+                "Useful Tools": "Shinobi FirecrackerLoaded Axe",
+                "Reward": "Memory: GenichiroBloodsmoke Ninjutsu",
+                "XP": "NG: 2000NG+: 18000NG++: 27000"
+            }
+        },
+        {
+            "nombre": "Folding Screen Monkeys",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Folding+Screen+Monkeys",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/folding-screen-monkeys-boss-sekiro-wiki-guide-300px.png",
+            "descripcion": "Illusionary monkeys that can be defeated by taking advantage of their senses.",
+            "detalles": {
+                "Location": "Senpou Temple- Main Hall",
+                "Weakness": "Shinobi FirecrackerStealth/Gachiin's Sugar",
+                "Reward": "Memory: Screen MonkeysPuppeteer Ninjutsu",
+                "XP": "NG: 3000NG+: 15000NG++: 22500"
+            }
+        },
+        {
+            "nombre": "Guardian Ape",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Guardian+Ape",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/guardian-ape-boss-sekiro-wiki-guide-300px.png",
+            "descripcion": "This colossal ape sits in its watering hole, tending to the Flower in order to attract a mate.",
+            "detalles": {
+                "Location": "Sunken Valley Passage",
+                "Deathblow Markers": "2",
+                "Useful Tools": "(Phase 1)Shinobi FirecrackerFlame Vent(Phase 2)Loaded SpearLoaded Umbrella",
+                "Reward": "Memory: Guardian ApeSlender Finger",
+                "XP": "NG: 3000NG+: 13000NG++: 19500"
+            }
+        },
+        {
+            "nombre": "Headless Ape",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Headless+Ape",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/headless-ape-boss-sekiro-wiki-guide-300px.png",
+            "descripcion": "The immortal Headless Ape and its mate must be defeated to reach the depths of Ashina.",
+            "detalles": {
+                "Location": "Ashina Depths",
+                "Useful Tools": "Loaded Spear(Headless)Loaded Umbrella(Headless)Shinobi Firecracker(Brown Fur)Flame Vent(Brown Fur)Loaded Shuriken(Brown Fur)",
+                "Reward": "Memory: Headless ApeBestowal Ninjutsu2 xPrayer Beads",
+                "XP": "NG: 5000NG+: 13750NG++: 20625"
+            }
+        },
+        {
+            "nombre": "Corrupted Monk",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Corrupted+Monk",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/corrupted_monk.png",
+            "descripcion": "The nebulous monk watches over the cave entrance, deep in Mibu Village.",
+            "detalles": {
+                "Location": "Ashina Depths,Fountainhead Palace",
+                "Deathblow Markers": "1 (Ashina Depths)3 (Fountainhead Palace)",
+                "Weakness(es)": "Lazulite Axe;Fistful of Ash;Snap Seed(Ashina Depths)Shinobi Firecracker; Fistful of Ash;  (Fountainhead Palace)",
+                "Reward(s)": "Memory: Corrupted Monk(Ashina Depths)Mibu Breathing Technique(Ashina Depths)Memory: True Monk(Fountainhead Palace)Dragon's Tally Board(Fountainhead Palace)",
+                "XP": "NG: 5500 (Ashina Depths)NG+: 13750 (Ashina Depths)NG++: 20625 (Ashina Depths)NG: 8000 (Fountainhead Palace)NG+: 12800 (Fountainhead Palace)NG++: 19200 (Fountainhead Palace)"
+            }
+        },
+        {
+            "nombre": "Emma, the Gentle Blade",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Emma,+the+Gentle+Blade",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/ashina-isshin-boss-sekiro-wiki-guide-300px.png",
+            "descripcion": "A master of the blade who is ready to cut down those who fall to Shura.",
+            "detalles": {
+                "Location": "Ashina Castle",
+                "Weakness": "Mortal Draw",
+                "Reward": "None"
+            }
+        },
+        {
+            "nombre": "Great Shinobi Owl",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Great+Shinobi+Owl",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/great-shinobi-owl-boss-sekiro-wiki-guide-300px.png",
+            "descripcion": "One of the greatest of the Shinobis, and Sekiro's father.",
+            "detalles": {
+                "Location": "Ashina Castle",
+                "Deathblow Markers": "2",
+                "Useful Tools": "Shinobi FirecrackerLoaded Umbrella - MagnetLoaded ShurikenMortal Draw",
+                "Resistance": "PoisonThrust attacks",
+                "Reward": "Memory: Great ShinobiAromatic Branch",
+                "XP": "NG: 6000NG+: 12000NG++: 18000"
+            }
+        },
+        {
+            "nombre": "True Corrupted Monk",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Corrupted+Monk",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/corrupted-monk-boss-sekiro-wiki-guide-300px.png",
+            "descripcion": "Eternal watcher of the Fountainhead Palace.",
+            "detalles": {
+                "Location": "Ashina Depths,Fountainhead Palace",
+                "Deathblow Markers": "1 (Ashina Depths)3 (Fountainhead Palace)",
+                "Weakness(es)": "Lazulite Axe;Fistful of Ash;Snap Seed(Ashina Depths)Shinobi Firecracker; Fistful of Ash;  (Fountainhead Palace)",
+                "Reward(s)": "Memory: Corrupted Monk(Ashina Depths)Mibu Breathing Technique(Ashina Depths)Memory: True Monk(Fountainhead Palace)Dragon's Tally Board(Fountainhead Palace)",
+                "XP": "NG: 5500 (Ashina Depths)NG+: 13750 (Ashina Depths)NG++: 20625 (Ashina Depths)NG: 8000 (Fountainhead Palace)NG+: 12800 (Fountainhead Palace)NG++: 19200 (Fountainhead Palace)"
+            }
+        },
+        {
+            "nombre": "Divine Dragon",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Divine+Dragon",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/divine-dragon-boss-sekiro-wiki-guide-300px.png",
+            "descripcion": "The Divine Dragon lies in wait in another realm.",
+            "detalles": {
+                "Location": "Fountainhead Palace",
+                "Deathblow Markers": "1",
+                "Weakness": "Lightning",
+                "Reward": "Memory: Divine DragonDivine Dragon's Tears",
+                "XP": "NG: 12000NG+: 19200NG++: 28800"
+            }
+        },
+        {
+            "nombre": "Owl (Father)",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Owl+(Father)",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/owl-father-boss-sekiro-wiki-guide-300px.png",
+            "descripcion": "The Owl in his prime will showcase his true powers.",
+            "detalles": {
+                "Location": "Hirata EstateRevisited",
+                "Deathblow Markers": "2",
+                "Weakness": "Bestowal NinjutsuMikiri CounterFistful of AshEmpowered Mortal Draw",
+                "Reward": "Memory: Foster FatherAromatic Flower",
+                "XP": "NG: 10000NG+: 12500NG++: 18750"
+            }
+        },
+        {
+            "nombre": "Demon of Hatred",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Demon+of+Hatred",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/demon-of-hatred-boss-sekirow-wiki-guide-300px.png",
+            "descripcion": "He once asked Wolf to kill him when it came to this. Now is the time.",
+            "detalles": {
+                "Location": "Ashina Outskirts",
+                "Deathblows Required": "3",
+                "Weakness": "MalcontentDivine ConfettiSuzaku's Lotus Umbrella",
+                "Reward": "Memory: Hatred DemonLapis Lazuli15,000 Exp (NG)18,750 Exp (NG+)28,125 Exp (NG++)",
+                "XP": "NG: 15000NG+: 18750NG++: 28125"
+            }
+        },
+        {
+            "nombre": "Isshin, the Sword Saint",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Isshin,+the+Sword+Saint",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/isshin-sword-saint-boss-sekiro-wiki-guide-300px.png",
+            "descripcion": "A master of both blade and spear. It will take all of Sekiro's skills to defeat him.",
+            "detalles": {
+                "Location": "Ashina Reservoir",
+                "Weakness": "Shinobi FirecrackerLoaded Umbrella(First & Second Phase)Mist Raven(FinalPhase)BurnSakura Dance(Final Phase)",
+                "Reward": "Memory: Saint IsshinDragon Flash",
+                "XP": "NG: 20000NG+: 25000NG++: 37500"
+            }
+        },
+        {
+            "nombre": "Inner Father",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Inner+Father",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/owl-father-boss-sekiro-wiki-guide-300px.png",
+            "descripcion": "A boss variation of the Owl (Father). This boss is only encountered in the Gauntlets of Strength.",
+            "detalles": {
+                "Location": "Hirata EstateRevisited",
+                "Deathblow Markers": "2",
+                "Weakness": "Bestowal NinjutsuMikiri CounterFistful of AshEmpowered Mortal Draw",
+                "Reward": "Memory: Inner FatherAnother's Memory: Shura"
+            }
+        },
+        {
+            "nombre": "Inner Genichiro",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Inner+Genichiro",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/genichiro-ashina-boss-sekiro-wiki-guide-300px.png",
+            "descripcion": "A boss variation of Genichiro Ashina. This boss is only encountered in the Gauntlets of Strength.",
+            "detalles": {
+                "Location": "Ashina ReservoirAshina Castle",
+                "Status Abnormalities": "Shock",
+                "Useful Tools": "Shinobi FirecrackerLoaded Axe",
+                "Reward": "Sakura DanceMemory: Inner Genichiro"
+            }
+        },
+        {
+            "nombre": "Inner Isshin",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Inner+Isshin",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/isshin-sword-saint-boss-sekiro-wiki-guide-300px.png",
+            "descripcion": "A boss variation of Isshin, the Sword Saint. This boss is only encountered in the Gauntlets of Strength.",
+            "detalles": {
+                "Location": "Ashina Reservoir",
+                "Weakness": "Shinobi FirecrackerLoaded Umbrella(First & Second Phase)Mist Raven(First and final Phase)Burn",
+                "Reward": "Memory: Inner IsshinAnother's Memory: Tengu"
+            }
+        }
+    ],
+    "Miniboss": 
+    [
+        {
+            "nombre": "Leader Shigenori Yamauchi",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Leader+Shigenori+Yamauchi",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/leader-shigenori-yamauchi2.jpg",
+            "descripcion": "A sword-wielding samurai located in the Ashina Reservoir.",
+            "detalles": {
+                "Location": "Ashina Reservoir",
+                "Deathblow Markers": "2",
+                "Reward": "Pellet",
+                "XP": "0"
+            }
+        },
+        {
+            "nombre": "General Naomori Kawarada",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/General+Naomori+Kawarada",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/general_naomori_kawarada1.jpg",
+            "descripcion": "A general of the Ashina army; Kawarada is a nodachi-wielding samurai located near the Ashina Outskirts Wall - Gate Path Sculptor's Idol found in the Ashina Outskirts.",
+            "detalles": {
+                "Location": "Ashina Outskirts",
+                "Deathblow Markers": "2",
+                "Reward": "Prayer BeadGourd Seed",
+                "XP": "NG: 134NG+: 2010NG++: 3015",
+                "Sen": "NG: 33NG+: 495NG++: 742"
+            }
+        },
+        {
+            "nombre": "Chained Ogre",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Chained+Ogre",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/chained-ogre-boss-sekiro-wiki-guide-300px.png",
+            "descripcion": "Men who have long since lost themselves to bloodlust and a deep hunger for violence, many of them needing to be imprisoned or bound to keep others safe. Their strength and fury, though indiscriminate, has been co-opted by both sides of the conflict between the Ashina clan and the Interior Ministry.",
+            "detalles": {
+                "Location": "Ashina OutskirtsAshina CastleFeeding Grounds",
+                "Deathblow Markers": "2",
+                "Weakness": "Flame Vent",
+                "Reward": "Prayer BeadShinobi Medicine Rank 1"
+            }
+        },
+        {
+            "nombre": "General Tenzen Yamauchi",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/General+Tenzen+Yamauchi",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/general-tenzen-yamauchi-boss-sekiro-wiki-guide-300px.jpg",
+            "descripcion": "A general of the Ashina army; Yamauchi is a nodachi-wielding samurai located in the courtyard found slightly past the Outskirts Wall - Stairway Sculptor's Idol.",
+            "detalles": {
+                "Location": "Ashina Outskirts",
+                "Deathblow Markers": "2",
+                "Reward": "Prayer Bead",
+                "XP": "NG: 155NG+: 2325NG++: 3487",
+                "Sen": "NG: 38NG+: 570NG++: 855"
+            }
+        },
+        {
+            "nombre": "Shinobi Hunter Enshin of Misen",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Shinobi+Hunter+Enshin+of+Misen",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/shinobi_hunter_enshin_of_misen_two_sekiro_wiki_guide.jpg",
+            "descripcion": "A skilled Shinobi hunter armed with a spear that is ready to pierce through any and all Shinobi it crosses its path with. He works as a mercenary with the bandits attacking the Hirata Estate.",
+            "detalles": {
+                "Location": "Hirata Estate",
+                "Deathblow Markers": "2",
+                "Weakness": "Mikiri Counter",
+                "Reward": "Prayer Bead",
+                "XP": "NG: 168NG+: 1680NG++: 2520",
+                "Sen": "NG: 78NG+: 780NG++: 1170"
+            }
+        },
+        {
+            "nombre": "Juzou the Drunkard",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Juzou+the+Drunkard",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/juzuo-the-drunkard-boss-sekiro-wiki-guide-300px.png",
+            "descripcion": "A former sumo wrestler with drinking problems, Juzou became the leader of a group of bandits that attacked the Hirata Estate.",
+            "detalles": {
+                "Location": "Hirata Estate",
+                "Deathblow Markers": "2",
+                "Weakness": "Co-OpFlame Vent",
+                "Reward": "Unrefined SakePrayer Bead",
+                "XP": "NG: 212NG+: 2120NG++: 3180",
+                "Sen": "NG: 39NG+: 390NG++: 585"
+            }
+        },
+        {
+            "nombre": "Blazing Bull",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Blazing+Bull",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/blazing-bull-boss-sekiro-wiki-guide-300px.png",
+            "descripcion": "A bull held within the gatehouse of Ashina Castle, with a bundle of burning tinder tied atop its horns. This bull cannot only ram its foes with immense force but also set them ablaze should they be foolish enough to take it head-on.",
+            "detalles": {
+                "Location": "Ashina Castle",
+                "Deathblow Markers": "1",
+                "Helpful Prosthetic Tools": "Shinobi FirecrackerSuzaku's Lotus Umbrella",
+                "Reward": "Prayer BeadShinobi Medicine Rank 2",
+                "XP": "NG: 215NG+: 2150NG++: 3225"
+            }
+        },
+        {
+            "nombre": "General Kuranosuke Matsumoto",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/General+Kuranosuke+Matsumoto",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/general-kuranosuke-matsumoto2.jpg",
+            "descripcion": "A general of the Ashina army; Matsumoto can be found giving an inspiring speech to his men on the steps leading up to Ashina Castle.",
+            "detalles": {
+                "Location": "Ashina Castle",
+                "Deathblow Markers": "2",
+                "Useful Tools": "Loaded ShurikenLoaded Spear",
+                "Reward": "Prayer Bead",
+                "XP": "NG: 280NG+: 2520NG++: 3780",
+                "Sen": "NG: 89NG+: 801NG++: 1201"
+            }
+        },
+        {
+            "nombre": "Seven Ashina Spears - Shikibu Toshikatsu Yamauchi",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Seven+Ashina+Spears+-+Shikibu+Toshikatsu+Yamauchi",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/seven-ashina-spears-shikibu-toshikatsu-yamauchi-boss-sekiro-wiki-guide-300px.png",
+            "descripcion": "One of the Seven Ashina Spears: a group of samurai who were personally awarded their weapons for the integral role they played in the Coup planned by Isshin Ashina. Yamauchi can be found in loitering in front of the building where Sekiro first attempted to rescue the Divine Heir in the Ashina Reservoir.",
+            "detalles": {
+                "Location": "Ashina Reservoir",
+                "Deathblow Markers": "2",
+                "Useful Tools": "Loaded AxeLoaded Umbrella - MagnetSpring-load Flame VentShinobi Firecracker",
+                "Reward": "Prayer Bead",
+                "XP": "NG: 465NG+: 2325NG++: 3487",
+                "Sen": "NG: 117NG+: 585NG++: 877"
+            }
+        },
+        {
+            "nombre": "Lone Shadow Longswordsman",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Lone+Shadow+Longswordsman",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/lone-shadow-longswordsman-boss-sekirow-wiki-guide-300px.png",
+            "descripcion": "Lone Shadows are the Interior Ministry's most trusted agents; the Longswordman is a man in search of a cowardly shinobi rumored to have sought refuge in a well after shamefully failing in his oath-bound duty.",
+            "detalles": {
+                "Location": "Ashina Reservoir",
+                "Deathblow Markers": "2",
+                "Useful Tools": "Loaded AxeLoaded SpearLoaded Umbrella - MagnetSabimaruHigh MonkMikiri counter",
+                "Reward": "Prayer BeadScrap Magnetite",
+                "XP": "NG: 215NG+: 1935NG++: 2902",
+                "Sen": "NG: 96NG+: 864NG++: 1296"
+            }
+        },
+        {
+            "nombre": "Ashina Elite - Jinsuke Saze",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Ashina+Elite+-+Jinsuke+Saze",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/ashina-elite-shinsuke-saze-boss-sekiro-wiki-guide-300px.png",
+            "descripcion": "A master of the Ashina Style developed by Isshin Ashina and his clan; he can be found in quiet meditation within the Dojo of Ashina Castle, every swipe of his blade seemingly striking twice in the same moment.",
+            "detalles": {
+                "Location": "Ashina Castle",
+                "Deathblow Markers": "2",
+                "Useful Tools": "Loaded UmbrellaSabimaru",
+                "Reward": "Prayer Bead",
+                "XP": "NG: 314NG+: 2826NG++: 4239",
+                "Sen": "NG: 96NG+: 864NG++: 1296"
+            }
+        },
+        {
+            "nombre": "Headless",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Headless",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/headless-boss-sekiro-wiki-guide-300px.png",
+            "descripcion": "A headless apparition-type enemy that emits terror to anyone it crosses its path.",
+            "detalles": {
+                "Location": "Ashina Outskirts,Ashina Castle,Sunken Valley,Fountainhead Palace",
+                "Deathblow Markers": "2 (Ashina Outskirts,Ashina Depths,Sunken Valley)1 (Ashina Castle,Fountainhead Palace)",
+                "Status Abnormality": "Terror",
+                "Weakness": "Divine ConfettiMalcontentPhoenix's Lilac Umbrella(withProjected Force)",
+                "Reward": "Ako's Spiritfall(Ashina Outskirts)Gokan's Spiritfall(Sunken Valley)Gachiin's Spiritfall(Ashina Depths)Ungo's Spiritfall(Ashina Castle)Yashariku's Spiritfall(Fountainhead Palace)",
+                "XP": "Ako's Spiritfall(Ashina Outskirts)NG: 812NG+: 2639NG++: 3958Gokan's Spiritfall(Sunken Valley)NG: 2640NG+: 4224NG++: 6336Gachiin's Spiritfall(Ashina Depths)NG: 1840NG+: 3680NG++: 5520Ungo's Spiritfall(Ashina Castle)NG: 1960NG+: 3136NG++: 4704Yashariku's Spiritfall(Fountainhead Palace)NG: 2840NG+: 4544NG++: 6816"
+            }
+        },
+        {
+            "nombre": "Great Serpent",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Great+Serpent",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/great_serpent_boss_icon_sekiro_shadows_die_twice_wiki_guide.jpg",
+            "descripcion": "The great serpent believed to guard the secrets of Sunken Valley.",
+            "detalles": {
+                "Location": "Sunken Valley Passage",
+                "Reward": "1st Serpent:Fresh Serpent Viscera2nd Serpent:Dried Serpent Viscera"
+            }
+        },
+        {
+            "nombre": "Long-arm Centipede Giraffe",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Long-arm+Centipede+Giraffe",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/long-arm-centipede-giraffe-boss-sekirow-wiki-guide-300px.png",
+            "descripcion": "A monster at Gun Fort, Sunken Valley.",
+            "detalles": {
+                "Location": "Sunken Valley",
+                "Weakness": "Poor PostureShinobi FirecrackerLoaded Umbrella - Magnet",
+                "Reward": "Prayer BeadYellow Gunpowder",
+                "XP": "NG: 778NG+: 2528NG++: 3792",
+                "Sen": "NG: 122NG+: 396NG++: 594"
+            }
+        },
+        {
+            "nombre": "Snake Eyes Shirahagi",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Snake+Eyes+Shirahagi",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/snake-eyes-shirahagi-boss-sekiro-wiki-guide-300px.png",
+            "descripcion": "One of a pair of elite snipers stationed in the Gun Fort; Shirahagi belongs to the Snake Eyes: an elite group of women stationed able to pierce distant targets with their mighty flint cannons and phenomenal vision. She guards the Poison Pools located beneath the Gun Fort in the Sunken Valley, her time spent among the noxious fumes of the place having inured her to the ancient weakness of her ancestors.",
+            "detalles": {
+                "Location": "Ashina Depths",
+                "Deathblow Markers": "2",
+                "Useful Tools": "Flame VentShinobi FirecrackerMist Raven",
+                "Reward": "1xPrayer Bead",
+                "XP": "NG: 1030NG+: 2832NG++: 4248",
+                "Sen": "NG: 125NG+: 343NG++: 515"
+            }
+        },
+        {
+            "nombre": "Tokujiro the Glutton",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Tokujiro+the+Glutton",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/tokujiro-the-glutton-boss-sekirow-wiki-guide-300px.png",
+            "descripcion": "A Elite enemy found at Ashina Depths: after the hidden forest Idol when heading to the left up some branches.",
+            "detalles": {
+                "Location": "Ashina Depths",
+                "Deathblow Markers": "2",
+                "Useful Tools": "Flame VentGreat Feather Mist Raven",
+                "Sen": "NG: 135NG+: 337NG++: 506",
+                "Reward": "Prayer BeadUnrefined Sake",
+                "XP": "NG: 1285NG+: 3212NG++: 4818"
+            }
+        },
+        {
+            "nombre": "Mist Noble",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Mist+Noble",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/mist_noble.jpg",
+            "descripcion": "The one who strayed from the Buddha, entrancing the village in thick fog and illusions.",
+            "detalles": {
+                "Location": "Hidden Forest",
+                "XP": "NG: 257NG+: 643",
+                "Sen": "NG: 39NG+: 146",
+                "Deathblow Markers": "2",
+                "Weakness": "KusabimaruEverything",
+                "Reward": "Lump of Grave Wax"
+            }
+        },
+        {
+            "nombre": "O'Rin of the Water",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/O'Rin+of+the+Water",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/orin-of-the-water-boss-sekiro-wiki-guide-300px.png",
+            "descripcion": "First appears to be an innocent lady at Mibu Village, will be provoked to attack.",
+            "detalles": {
+                "Location": "Mibu Village",
+                "Deathblow Markers": "2",
+                "Useful Tools": "MalcontentSabimaru (piercing)Loaded UmbrellaMist RavenDivine Confetti",
+                "Reward": "1530 Exp (NG)Prayer BeadBreath of Life: Shadow"
+            }
+        },
+        {
+            "nombre": "Shichimen Warrior",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Shichimen+Warrior",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/shichimen-warrior-boss-sekiro-wiki-guide-300px.png",
+            "descripcion": "A mysterious enemy with the power of inflict terror, encountered in Abandoned Dungeon, Ashina Depths and Fountainhead Palace.",
+            "detalles": {
+                "Location": "Abandoned DungeonAshina DepthsFountainhead Palace",
+                "XP": "Abandoned DungeonNG: 1960NG+: 2555NG++: 3832",
+                "Deathblow Markers": "2",
+                "Weakness": "Divine ConfettiAnti-Air DeathblowMalcontentPhoenix's Lilac Umbrella",
+                "Reward": "Ceremonial TantoMalcontent's RingLapis Lazuli"
+            }
+        },
+        {
+            "nombre": "Lone Shadow Vilehand",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Lone+Shadow+Vilehand",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/lone-shadow-vilehand-boss-sekirow-wiki-guide-300px.png",
+            "descripcion": "Lone Shadows are the Interior Ministry's most trusted agents; Vilehand, an accomplished swordsman and practitioner of poison-based martial arts, can be found accompanied by another nameless Long Shadow Shinobi in the Dojo of Ashina Castle after the Interior Ministry attempts to kidnap Kuro, the Divine Heir from the Ashina clan.",
+            "detalles": {
+                "Location": "Just past Upper Tower -Ashina Dojo (possibly after collecting both ingredients)",
+                "Weakness": "Puppeteer Ninjutsu",
+                "Reward": "Lump of Fat WaxPrayer Bead1840 Exp (NG)"
+            }
+        },
+        {
+            "nombre": "Lone Shadow Masanaga the Spear-bearer",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Lone+Shadow+Masanaga+the+Spear-bearer",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/lone-shadow-masanaga-spear-bearer-boss-sekirow-wiki-guide-300px.png",
+            "descripcion": "Lone Shadows are the Interior Ministry's most trusted agents; Masanaga and his trio of shinobi wolves can be found mourning the death of another Lone Shadow found within the Serpent Shrine of Ashina Castle. The group appears after the Interior Ministry attempts to kidnap Kuro, the Divine Heir from the Ashina clan.",
+            "detalles": {
+                "Location": "Ashina Castle - Serpent Shrine; Hirata Estate (Owl Memory)",
+                "Weakness": "",
+                "Reward": "Yellow GunpowderPrayer Bead"
+            }
+        },
+        {
+            "nombre": "Armored Warrior",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Armored+Warrior",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/armored-warrior-boss-sekiro-wiki-guide-300px.png",
+            "descripcion": "A warrior clad in heavy platemail armor with no visible weak points; he seems to be guarding the only passage leading deeper into Senpou Temple, and wields a massive claymore in battle. He and his son Robert have come across the seas from the South in order to seek the Waters of Rejuvenation rumored to reside within Senpou.",
+            "detalles": {
+                "Location": "Senpou Temple, Mt. Kongo",
+                "Deathblow Markers": "1",
+                "Helpful Tools": "Loaded Umbrella - MagnetLoaded AxeGravity",
+                "XP": "NG: 465NG+: 2325",
+                "Reward": "1xPrayer BeadBreath of Nature: Shadow"
+            }
+        },
+        {
+            "nombre": "Long Arm Centipede Sen-Un",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Long+Arm+Centipede+Sen-Un",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/long-arm-centipede-sen-un-boss-sekirow-wiki-guide-300px.png",
+            "descripcion": "A monster at Senpou Temple, Mt. Kongo",
+            "detalles": {
+                "Location": "Senpou Temple, Mt. Kongo",
+                "Deathblow Markers": "2",
+                "Helpful Tools": "Shinobi FirecrackerLoaded Umbrella - Magnet",
+                "XP": "NG: 428NG+: 2140",
+                "Reward": "Prayer BeadYellow Gunpowder"
+            }
+        },
+        {
+            "nombre": "Snake Eyes Shirafuji",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Snake+Eyes+Shirafuji",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/snake-eyes-shirafuji-boss-sekiro-wiki-guide-300px.png",
+            "descripcion": "One of a pair of elite snipers stationed in the Gun Fort; Shirahagi belongs to the Snake Eyes: an elite group of women stationed able to pierce distant targets with their mighty flint cannons and phenomenal vision. She guards the upper-most reaches of the Gun Fort from all that would threaten it, and can be found standing beneath a giant statue of the Buddhe located in a cavern slightly past the Ashina Depths Sculptor's Idol.",
+            "detalles": {
+                "Location": "Sunken Valley",
+                "XP": "NG: 1030 NG+: 2833",
+                "Sen": "NG: 106 NG+: 468",
+                "Deathblow Markers": "2",
+                "Weakness": "SabimaruShinobi FirecrackersPoison",
+                "Reward": "Prayer Bead"
+            }
+        },
+        {
+            "nombre": "Sakura Bull of the Palace",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Sakura+Bull+of+the+Palace",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/sakura-bull-of-the-palace-boss-sekiro-wiki-guide-300px.png",
+            "descripcion": "A giant bull Found at Fountainhead Temple area, by taking a left turn from the Flower Viewing Stage Sculptor's Idol.",
+            "detalles": {
+                "Location": "Fountainhead Palace",
+                "Weakness": "Shinobi FirecrackerPhoenix's Lilac Umbrella",
+                "Reward": "Prayer BeadA Beast's Karma"
+            }
+        },
+        {
+            "nombre": "Okami Leader Shizu",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Okami+Leader+Shizu",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/okami-leader-shizu1.jpg",
+            "descripcion": "A female samurai guarding the Fountainhead Palace.",
+            "detalles": {
+                "Location": "Fountainhead Palace",
+                "Weakness": "Anti-air deathblowSabimaru Prosthetic Tool",
+                "Reward": "Sen & Prayer Beed"
+            }
+        },
+        {
+            "nombre": "Great Colored Carp",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Great+Colored+Carp",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/great_colored_carp1.jpg",
+            "descripcion": "A giant carp found at Fountainhead Palace.",
+            "detalles": {
+                "Location": "Fountainhead Palace",
+                "Weakness": "Truly Precious Bait",
+                "Reward": "Great White Whisker"
+            }
+        },
+        {
+            "nombre": "Seven Ashina Spears - Shume Masaji Oniwa",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Seven+Ashina+Spears+-+Shume+Masaji+Oniwa",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/seven-ashina-spears-shume-masaji-oniwa-boss-sekiro-wiki-guide-300px.png",
+            "descripcion": "One of the Seven Ashina Spears: a group of samurai who were personally awarded their weapons for the integral role they played in the Coup planned by Isshin Ashina. Oniwa can be found discussing plans to take back the castle with Genichiro and surviving members of his forces near the Ashina Reservoir Sculptor's Idol after the Interior Ministry enters their final phase of attack on Ashina Castle.",
+            "detalles": {
+                "Location": "Ashina Reservoir (after set ablaze)",
+                "Weakness": "Mikiri counter followed by a perfect deflect",
+                "Reward": "Prayer Bead"
+            }
+        },
+        {
+            "nombre": "Ashina Elite - Ujinari Mizuo",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Ashina+Elite+Ujinari+Mizuo",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/ashina-elite-ushinari-mizuo-boss-sekiro-wiki-guide-300px.png",
+            "descripcion": "A master of the Ashina Style developed by Isshin Ashina and his clan; Mizuo can be found in the small dojo located underneath the room where the Tengu guarding Isshin Ashina once stood before the forces of the Interior Ministry began their final assault on Ashina Castle. His loyalty—or bloodlust—has driven him to the brink of madness.",
+            "detalles": {
+                "Location": "Ashina Castle",
+                "Weakness": "Flame, Block, Great Feather Mist Raven",
+                "Reward": "1xPrayer Bead2,905 Exp (NG)"
+            }
+        },
+        {
+            "nombre": "Shigekichi of the Red Guard",
+            "link": "https://sekiroshadowsdietwice.wiki.fextralife.com/Shigekichi+of+the+Red+Guard",
+            "imagen": "https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/shigekichi-of-the-red-guard-boss-sekiro-wiki-guide-300px.png",
+            "descripcion": "An Elite enemy Found after the Ashina Outskirts - Stairway Idol on the way to the Underbridge Valley Idol, after Ashina Castle has been invaded for the second time.",
+            "detalles": {
+                "Location": "Ashina Outskirts",
+                "Weakness": "Firecracker, Loaded Spear (+Variations)",
+                "Reward": "Prayer Bead"
+            }
+        }
+    ]
+}
