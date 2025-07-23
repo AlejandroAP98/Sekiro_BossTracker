@@ -119,8 +119,7 @@ function App() {
 
   return (
     <div className="container mx-auto ">
-      <h1 className="text-3xl font-bold mb-4 text-center">Sekiro Boss Tracker</h1>
-      <div className="mb-2 flex justify-between w-full sm:gap-4 gap-1">
+      <div className="mb-2 flex justify-between w-full sm:gap-4 gap-1 mt-4">
         <div className="sm:w-2/3">
           <progress class="progress progress-primary" value={progreso} max="100" />
           <p class="mt-2 font-semibold text-primary">
