@@ -121,18 +121,39 @@ const toggleDefeated = (id: string) => {
     minibossesDerrotados: 0
   }
   );
+
+  const formatearTiempo = (ms: number) => {
+  const totalSegundos = Math.floor(ms / 1000);
+  const horas = Math.floor(totalSegundos / 3600);
+  const minutos = Math.floor((totalSegundos % 3600) / 60);
+  const segundos = totalSegundos % 60;
+  return `${horas.toString().padStart(2, '0')}:${minutos
+    .toString()
+    .padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
+};
+
+  const tiempoGlobal = bosses.reduce((total, b) => {
+    if (b.tiempoTotal) {
+      return total + (b.tiempoTotal + (b.corriendo && b.tiempoInicio ? Date.now() - b.tiempoInicio : 0));
+    }
+    return total;
+  }, 0);
+
  
   return (
     <div className="mx-auto w-full ">
       <div className="flex flex-col px-4 w-full sm:gap-4 gap-1 mt-4">
         <progress class="progress progress-success" value={progreso} max="100" />
+        <span className="countdown justify-center sm:text-2xl text-lg text-neutral-content font-mono">
+          {formatearTiempo(tiempoGlobal)}
+        </span>
         <div className="w-full flex justify-between items-center">  
           <div className="text-warning/90 w-full">
-            <p class="font-semibold text-success">
-              {derrotados} / {total} jefes derrotados ({progreso}%)
+            <p class="font-semibold text-success sm:text-lg text-sm">
+              {derrotados} / {total} - Jefes derrotados {progreso}%
             </p>
-            <p className="text-sm">Bosses {conteoPorTipo.bossesDerrotados} / {conteoPorTipo.bossesTotales}</p>
-            <p className="text-sm">Minibosses {conteoPorTipo.minibossesDerrotados} / {conteoPorTipo.minibossesTotales}</p>
+            <p className="text-sm">{conteoPorTipo.bossesDerrotados} / {conteoPorTipo.bossesTotales} - Bosses </p>
+            <p className="text-sm">{conteoPorTipo.minibossesDerrotados} / {conteoPorTipo.minibossesTotales} - Minibosses</p>
           </div>
           <label className="input m-2">
             <svg className="h-[1em] opacity-80" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

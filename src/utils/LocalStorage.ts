@@ -11,10 +11,7 @@ export function cargarBosses(): BossEstado[] {
   if (stored) {
     try {
       const parsed = JSON.parse(stored) as BossEstado[];
-
-      // Validación básica
       if (!Array.isArray(parsed)) return [];
-
       return parsed; 
     } catch (e) {
       console.error('Error cargando datos desde localStorage:', e);

@@ -2,6 +2,7 @@ import type { FunctionalComponent } from 'preact';
 import { useState, useEffect } from 'preact/hooks';
 import type { BossEstado } from '../types/Boss';
 
+
 interface BossCardProps {
   boss: BossEstado;
   onToggle: (id: string) => void;
@@ -16,39 +17,57 @@ const BossCard: FunctionalComponent<BossCardProps> = ({ boss, onToggle, onUpdate
 
     if (boss.corriendo && boss.tiempoInicio) {
       intervalo = setInterval(() => {
-        setTiempo(Date.now() - boss.tiempoInicio!);
+          const tiempoTotal = (boss.tiempoTotal ?? 0) + (Date.now() - boss.tiempoInicio!);
+          setTiempo(tiempoTotal);
       }, 1000);
-    } else if (boss.tiempoTotal) {
-      setTiempo(boss.tiempoTotal);
     } else {
-      setTiempo(0);
+      setTiempo(boss.tiempoTotal ?? 0);
+
     }
 
     return () => clearInterval(intervalo);
-  }, [boss.corriendo, boss.tiempoInicio]);
+  }, [boss.corriendo, boss.tiempoInicio, boss.tiempoTotal]);
 
   const iniciar = () => {
-    onUpdateBoss(boss.id, {
-      tiempoInicio: Date.now(),
-      corriendo: true,
-    });
+    if (!boss.corriendo) {
+      onUpdateBoss(boss.id, {
+        tiempoInicio: Date.now(),
+        corriendo: true,
+      });
+    }
   };
 
   const detener = () => {
-    if (boss.tiempoInicio) {
-      const tiempoTranscurrido = Date.now() - boss.tiempoInicio;
+    if (boss.tiempoInicio && boss.corriendo) {
+      const tiempoTotal = Date.now() - boss.tiempoInicio;
       onUpdateBoss(boss.id, {
-        tiempoTotal: tiempoTranscurrido,
+        tiempoTotal: (boss.tiempoTotal ?? 0) + tiempoTotal,
         tiempoInicio: null,
         corriendo: false,
       });
     }
   };
 
+  const reiniciar = () => {
+    if (confirm(`¿Estás seguro de reiniciar el tiempo para ${boss.nombre}?`)){
+        onUpdateBoss(boss.id, {
+        tiempoInicio: null,
+        tiempoTotal: null,
+        corriendo: false,
+      });
+      setTiempo(0);
+    }
+    return;
+  };
+
   const formatoTiempo = (ms: number) => {
+    const horas = Math.floor(ms / 1000 / 60 / 60);
+    if (horas > 0) {
+      return ` ${horas}h ${Math.floor(ms / 1000 / 60) % 60}m ${Math.floor(ms / 1000) % 60}s`;
+    }
     const segundos = Math.floor(ms / 1000) % 60;
     const minutos = Math.floor(ms / 1000 / 60);
-    return `${minutos}m ${segundos}s`;
+    return ` ${minutos}m ${segundos}s`;
   };
   
   return (
@@ -93,6 +112,12 @@ const BossCard: FunctionalComponent<BossCardProps> = ({ boss, onToggle, onUpdate
                   </button>
                 )}
                 <span className="countdown items-center font-mono text-lg">{formatoTiempo(tiempo)}</span>
+                <button className="btn btn-xs btn-error" onClick={reiniciar} hidden={boss.defeated || !boss.tiempoTotal}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/>
+                      <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"/>
+                    </svg>
+                </button>
               </div>
           </div>
           <div className="text-accent ">{boss.detalles?.Location}</div>
