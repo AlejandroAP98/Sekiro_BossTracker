@@ -4,6 +4,7 @@ export interface DetallesBoss {
   "Useful Tools"?: string;
   Reward?: string;
   XP?: string;
+  Weakness?: string;
 }
 
 export interface BossData {

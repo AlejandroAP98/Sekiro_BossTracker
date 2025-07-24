@@ -130,16 +130,19 @@ const BossCard: FunctionalComponent<BossCardProps> = ({ boss, onToggle, onUpdate
             </div>
             <div className="collapse-content text-sm">
               {boss.detalles?.['Deathblow Markers'] && (
-                <p><strong>Deathblow Markers:</strong> {boss.detalles['Deathblow Markers']}</p>
+                <p><strong>Deathblow Markers: </strong> {boss.detalles['Deathblow Markers']}</p>
               )}
               {boss.detalles?.['Useful Tools'] && (
-                <p><strong>Herramientas útiles:</strong> {boss.detalles['Useful Tools']}</p>
+                <p><strong>Herramientas útiles: </strong> {boss.detalles['Useful Tools']}</p>
               )}
               {boss.detalles?.Reward && (
-                <p><strong>Recompensa:</strong> {boss.detalles.Reward}</p>
+                <p><strong>Recompensa: </strong> {boss.detalles.Reward}</p>
               )}
               {boss.detalles?.XP && (
-                <p><strong>XP:</strong> {boss.detalles.XP}</p>
+                <p><strong>XP: </strong> {boss.detalles.XP}</p>
+              )}
+              {boss.detalles?.Weakness && (
+                <p><strong>Debilidad: </strong> {boss.detalles.Weakness}</p>
               )}
             </div>
           </div>
