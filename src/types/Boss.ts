@@ -13,9 +13,13 @@ export interface BossData {
   descripcion: string;
   detalles?: DetallesBoss;
 }
-
+// types/Boss.ts
 export interface BossEstado extends BossData {
   id: string;
   tipo: 'Boss' | 'Miniboss';
   defeated: boolean;
+  tiempoInicio?: number | null;
+  tiempoTotal?: number | null;
+  corriendo?: boolean;
 }
+
