@@ -73,20 +73,37 @@ const toggleDefeated = (id: string) => {
     const actualizados = prev.map(b => {
       if (b.id === id) {
         const nuevoEstado = !b.defeated;
+        let tiempoTotalActualizado = b.tiempoTotal;
+
+        // Si el boss estaba corriendo, actualizamos el tiempo total
+        if (b.corriendo && b.tiempoInicio) {
+          tiempoTotalActualizado = (b.tiempoTotal || 0) + (Date.now() - b.tiempoInicio);
+        }
+
+        // Actualizamos el estado del boss
+        const actualizado: BossEstado = {
+          ...b,
+          defeated: nuevoEstado,
+          corriendo: false,
+          tiempoInicio: null,
+          tiempoTotal: tiempoTotalActualizado,
+        };
+
+        // 🎉 Solo reproducir efectos si se marca como derrotado
         if (nuevoEstado) {
           confetti({
             particleCount: 100,
             spread: 70,
             origin: { y: 0.6 }
           });
+          efectSound.currentTime = 0;
+          efectSound.play();
         }
-        efectSound.currentTime = 0;
-        efectSound.play();
-        return { ...b, defeated: nuevoEstado };
+        return actualizado;
       }
       return b;
     });
-
+    // Actualizar el estado de los bosses en el localStorage
     guardarBossesEnStorage(actualizados);
     return actualizados;
   });

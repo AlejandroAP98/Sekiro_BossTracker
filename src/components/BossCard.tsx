@@ -120,7 +120,7 @@ const BossCard: FunctionalComponent<BossCardProps> = ({ boss, onToggle, onUpdate
                 </button>
               </div>
           </div>
-          <div className="text-accent ">{boss.detalles?.Location}</div>
+          <span className="text-accent">{boss.detalles?.Location}</span>
         </div>
         <div className={`text-sm ${boss.defeated ? 'text-success' : 'text-warning'}`}>
           <div className="collapse collapse-arrow bg-base-200">
