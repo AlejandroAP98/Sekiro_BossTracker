@@ -204,41 +204,22 @@ const toggleDefeated = (id: string) => {
         </div>
       </div>
       <div className="mb-2 flex justify-between items-center px-4 gap-4">
-        <div className="filtro-estado flex flex-wrap w-fit bg-base-200 p-4 gap-4 rounded-box text-sm ">
-          <label className="flex items-center gap-1 cursor-pointer ">
-            <input
-              type="checkbox"
-              name="estado"
-              value="Todos"
-              defaultChecked
-              checked={filtroEstado === 'Todos'}
-              onChange={() => setFiltroEstado('Todos')}
-              className="checkbox checkbox-primary sm:checkbox-sm checkbox-xs"
-            />
-            Todos
-          </label>
-          <label className="flex items-center gap-1 cursor-pointer">
-            <input
-              type="checkbox"
-              name="estado"
-              value="Derrotados"
-              checked={filtroEstado === 'Derrotados'}
-              onChange={() => setFiltroEstado('Derrotados')}
-              className="checkbox checkbox-primary sm:checkbox-sm checkbox-xs"
-            />
-            Derrotados
-          </label>
-          <label className="flex items-center gap-1 cursor-pointer">
-            <input
-              type="checkbox"
-              name="estado"
-              value="Faltantes"
-              checked={filtroEstado === 'Faltantes'}
-              onChange={() => setFiltroEstado('Faltantes')}
-              className="checkbox checkbox-primary sm:checkbox-sm checkbox-xs"
-            />
-            Faltantes
-          </label>
+        <div className="filtro-estado flex flex-wrap w-fit bg-base-200 p-4 gap-2 rounded-box text-sm ">
+          {['Todos', 'Derrotados', 'Faltantes'].map((estado) => (
+            <label key={estado} className="flex items-center gap-1 cursor-pointer">
+              <input
+                type="radio"
+                name="estado"
+                value={estado}
+                checked={filtroEstado === estado}
+                onChange={() => {
+                  if (filtroEstado !== estado) setFiltroEstado(estado as any);
+                }}
+                className="radio radio-primary radio-sm"
+              />
+              {estado}
+            </label>
+          ))}
         </div>
         <ul className="menu bg-base-200 menu-horizontal rounded-box self-center p-2.5">
         {['Boss', 'Miniboss'].map(tipo => (
