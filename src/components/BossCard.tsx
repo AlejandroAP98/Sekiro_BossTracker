@@ -72,7 +72,7 @@ const BossCard: FunctionalComponent<BossCardProps> = ({ boss, onToggle, onUpdate
   
   return (
     <div
-      className={`card shadow-sm transition-colors duration-500 ease-in-out mb-2 border-b-2 border-t-2 border-r border-l border-base-300 ${
+      className={`card h-full shadow-sm transition-colors duration-500 ease-in-out mb-2 border-b-2 border-t-2 border-r border-l border-base-300 ${
         boss.defeated ? 'bg-success text-success-content' : 'bg-base-100'
       }`}
       onDblClick={() => onToggle(boss.id)}

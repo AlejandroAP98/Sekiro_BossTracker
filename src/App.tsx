@@ -5,6 +5,8 @@ import type { BossEstado, BossData } from './types/Boss';
 import BossCard from './components/BossCard';
 import Footer from './components/Footer';
 import confetti from 'canvas-confetti'; 
+import { AnimatePresence, motion } from 'framer-motion';
+
 const efectSound = new Audio('/sounds/efect.mp3');
 efectSound.volume = 0.5;
 interface JSONBosses {
@@ -160,10 +162,32 @@ const toggleDefeated = (id: string) => {
   return (
     <div className="mx-auto w-full ">
       <div className="flex flex-col px-4 w-full sm:gap-4 gap-1 mt-4">
-        <progress class="progress progress-success" value={progreso} max="100" />
-        <span className="countdown justify-center sm:text-2xl text-lg text-neutral-content font-mono">
+        <div className="w-full h-3 bg-base-300 rounded">
+          <motion.div
+            className={`h-full rounded ${
+              progreso < 50
+                ? 'bg-success'
+                : progreso < 80
+                ? 'bg-primary'
+                : 'bg-success'
+            }`}
+            initial={{ width: 0 }}
+            animate={{ width: `${progreso}%` }}
+            transition={{ duration: 1 }}
+          />
+
+        </div>
+
+        <motion.span
+          key={tiempoGlobal}
+          initial={{ scale: 0.9, opacity: 0.5 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="countdown justify-center sm:text-2xl text-lg text-neutral-content font-mono"
+        >
           {formatearTiempo(tiempoGlobal)}
-        </span>
+        </motion.span>
+
         <div className="w-full flex justify-between items-center">  
           <div className="text-warning/90 w-full">
             <p class="font-semibold text-success sm:text-lg text-sm">
@@ -210,9 +234,20 @@ const toggleDefeated = (id: string) => {
         </ul>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-4">
+       <AnimatePresence mode="popLayout">
         {bossesFiltrados.map(b => (
-          <BossCard key={b.id} boss={b} onToggle={toggleDefeated} onUpdateBoss={actualizarBoss} />
+          <motion.div
+            key={b.id}
+            layout
+            initial={{ opacity: 0, y: 10, scale: 0.90 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.90 }}
+            transition={{ duration: 0.5 }}
+          >
+            <BossCard boss={b} onToggle={toggleDefeated} onUpdateBoss={actualizarBoss} />
+          </motion.div>
         ))}
+      </AnimatePresence>
       </div>
       <Footer bosses={bosses} setBosses={setBosses} />
     </div>
