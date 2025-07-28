@@ -14,8 +14,9 @@ interface JSONBosses {
 
 function App() {
   const [bosses, setBosses] = useState<BossEstado[]>(cargarBosses());
-  const [filtro, setFiltro] = useState<'Todos' | 'Boss' | 'Miniboss'>('Todos');
+  const [filtro, setFiltro] = useState<'Boss' | 'Miniboss'>('Boss');
   const [busqueda, setBusqueda] = useState('');
+  const [filtroEstado, setFiltroEstado] = useState<'Todos' | 'Derrotados' | 'Faltantes'>('Todos');
 
   const actualizarBoss = (id: string, data: Partial<BossEstado>) => {
     setBosses(prev => {
@@ -93,7 +94,7 @@ const toggleDefeated = (id: string) => {
         if (nuevoEstado) {
           confetti({
             particleCount: 100,
-            spread: 70,
+            spread: 80,
             origin: { y: 0.6 }
           });
           efectSound.currentTime = 0;
@@ -114,11 +115,18 @@ const toggleDefeated = (id: string) => {
   const total = bosses.length;
   const progreso = Math.round((derrotados / total) * 100);
 
-  const bossesFiltrados = bosses.filter(b => {
-    const coincideTipo = filtro === 'Todos' || b.tipo === filtro;
-    const coincideBusqueda = b.nombre.toLowerCase().includes(busqueda.toLowerCase());
-    return coincideTipo && coincideBusqueda;
-  });
+ const bossesFiltrados = bosses.filter(b => {
+  const coincideTipo = filtro === 'Boss' || b.tipo === filtro;
+  const coincideBusqueda = b.nombre.toLowerCase().includes(busqueda.toLowerCase());
+
+  const coincideEstado =
+    filtroEstado === 'Todos' ||
+    (filtroEstado === 'Derrotados' && b.defeated) ||
+    (filtroEstado === 'Faltantes' && !b.defeated);
+
+  return coincideTipo && coincideBusqueda && coincideEstado;
+});
+
 
   const conteoPorTipo = bosses.reduce(
   (acc, b) => {
@@ -164,15 +172,15 @@ const toggleDefeated = (id: string) => {
         <span className="countdown justify-center sm:text-2xl text-lg text-neutral-content font-mono">
           {formatearTiempo(tiempoGlobal)}
         </span>
-        <div className="w-full flex justify-between items-center">  
-          <div className="text-warning/90 w-full">
+        <div className="w-full flex justify-between items-center mb-2">  
+          <div className="text-warning/90 w-full mx-1">
             <p class="font-semibold text-success sm:text-lg text-sm">
               {derrotados} / {total} - Jefes derrotados {progreso}%
             </p>
             <p className="text-sm">{conteoPorTipo.bossesDerrotados} / {conteoPorTipo.bossesTotales} - Bosses </p>
             <p className="text-sm">{conteoPorTipo.minibossesDerrotados} / {conteoPorTipo.minibossesTotales} - Minibosses</p>
           </div>
-          <label className="input m-2">
+          <label className="input">
             <svg className="h-[1em] opacity-80" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <g
                 strokeLinejoin="round"
@@ -195,13 +203,49 @@ const toggleDefeated = (id: string) => {
           </label>
         </div>
       </div>
-      <div className="mb-4 flex justify-center">
-        <ul className="menu bg-base-200 menu-horizontal rounded-box self-center">
-        {['Todos', 'Boss', 'Miniboss'].map(tipo => (
+      <div className="mb-2 flex justify-between items-center px-4 gap-4">
+        <div className="filtro-estado flex flex-wrap w-fit bg-base-200 p-4 gap-4 rounded-box text-sm ">
+          <label className="flex items-center gap-1 cursor-pointer ">
+            <input
+              type="checkbox"
+              name="estado"
+              value="Todos"
+              defaultChecked
+              checked={filtroEstado === 'Todos'}
+              onChange={() => setFiltroEstado('Todos')}
+              className="checkbox checkbox-primary sm:checkbox-sm checkbox-xs"
+            />
+            Todos
+          </label>
+          <label className="flex items-center gap-1 cursor-pointer">
+            <input
+              type="checkbox"
+              name="estado"
+              value="Derrotados"
+              checked={filtroEstado === 'Derrotados'}
+              onChange={() => setFiltroEstado('Derrotados')}
+              className="checkbox checkbox-primary sm:checkbox-sm checkbox-xs"
+            />
+            Derrotados
+          </label>
+          <label className="flex items-center gap-1 cursor-pointer">
+            <input
+              type="checkbox"
+              name="estado"
+              value="Faltantes"
+              checked={filtroEstado === 'Faltantes'}
+              onChange={() => setFiltroEstado('Faltantes')}
+              className="checkbox checkbox-primary sm:checkbox-sm checkbox-xs"
+            />
+            Faltantes
+          </label>
+        </div>
+        <ul className="menu bg-base-200 menu-horizontal rounded-box self-center p-2.5">
+        {['Boss', 'Miniboss'].map(tipo => (
           <li>
             <a
-              className={`cursor-pointer ${filtro === tipo ? 'text-primary font-bold' : ''}`}
-              onClick={() => setFiltro(tipo as 'Todos' | 'Boss' | 'Miniboss')}
+              className={`cursor-pointer ${filtro === tipo ? 'text-primary ' : ''}`}
+              onClick={() => setFiltro(tipo as 'Boss' | 'Miniboss')}
             >
               {tipo}
             </a>
@@ -211,7 +255,12 @@ const toggleDefeated = (id: string) => {
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-4">
         {bossesFiltrados.map(b => (
-          <BossCard key={b.id} boss={b} onToggle={toggleDefeated} onUpdateBoss={actualizarBoss} />
+          <BossCard 
+            key={b.id} 
+            boss={b} 
+            onToggle={toggleDefeated} 
+            onUpdateBoss={actualizarBoss} 
+          />
         ))}
       </div>
       <Footer bosses={bosses} setBosses={setBosses} />

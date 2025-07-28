@@ -54,7 +54,7 @@ export default function Footer({ bosses, setBosses }: FooterProps) {
             </svg>
           </a>
           <p className="text-xs">
-          Alejandro Álvarez {new Date().getFullYear()} - All rights reserved
+          Alejandro Álvarez {new Date().getFullYear()} - Sekiro Boss Tracker v1.0
           </p>
         </div>
         <div className="flex items-center gap-2 sm:gap-4 flex-wrap text-sm">
