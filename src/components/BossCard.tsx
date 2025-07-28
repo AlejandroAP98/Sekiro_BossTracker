@@ -79,6 +79,48 @@ const BossCard: FunctionalComponent<BossCardProps> = ({ boss, onToggle, onUpdate
     >
       <figure className="p-4 flex justify-center">
         <div className={`skeleton ${boss.imagen ? 'hidden' : 'block'} h-48 w-48`}></div>
+        <a 
+          onClick={() => onUpdateBoss(boss.id, { pinned: !boss.pinned })}
+          title={boss.pinned ? "Desmarcar" : "Marcar"}
+          className={`text-sm absolute top-4 right-4 ${boss.pinned ? 'text-warning' : 'text'}`}
+        >
+          {boss.pinned ? (
+            // Ícono cuando está "pineado"
+            <svg 
+              xmlns="http://www.w3.org/2000/svg"  
+              width="28" 
+              height="28" 
+              viewBox="0 0 24 24" 
+              fill="currentColor"  
+              className="icon icon-tabler icons-tabler-filled icon-tabler-current-location"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path d="M12 1a1 1 0 0 1 1 1v1.055a9.004 9.004 0 0 1 7.946 7.945h1.054a1 1 0 0 1 0 2h-1.055a9.004 9.004 0 0 1 -7.944 7.945l-.001 1.055a1 1 0 0 1 -2 0v-1.055a9.004 9.004 0 0 1 -7.945 -7.944l-1.055 -.001a1 1 0 0 1 0 -2h1.055a9.004 9.004 0 0 1 7.945 -7.945v-1.055a1 1 0 0 1 1 -1m0 4a7 7 0 1 0 0 14a7 7 0 0 0 0 -14m0 3a4 4 0 1 1 -4 4l.005 -.2a4 4 0 0 1 3.995 -3.8" />
+            </svg>
+          ) : (
+            // Ícono cuando no está "pineado"
+            <svg 
+              width="28" 
+              height="28"
+              viewBox="0 0 24 24" 
+              fill="none"  
+              stroke="currentColor"  
+              strokeWidth="2"  
+              strokeLinecap="round"  
+              strokeLinejoin="round"  
+              className="icon icon-tabler icons-tabler-outline icon-tabler-current-location"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+              <path d="M12 12m-8 0a8 8 0 1 0 16 0a8 8 0 1 0 -16 0" />
+              <path d="M12 2l0 2" />
+              <path d="M12 20l0 2" />
+              <path d="M20 12l2 0" />
+              <path d="M2 12l2 0" />
+            </svg>
+          )}
+        </a>
+
         <img
           src={boss.imagen}
           className="h-auto w-auto object-contain max-h-48 max-w-full rounded-sm"

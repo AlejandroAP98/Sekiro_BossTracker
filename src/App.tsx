@@ -6,6 +6,7 @@ import BossCard from './components/BossCard';
 import Footer from './components/Footer';
 import confetti from 'canvas-confetti'; 
 import { AnimatePresence, motion } from 'framer-motion';
+import { useMemo } from 'preact/hooks';
 
 const efectSound = new Audio('/sounds/efect.mp3');
 efectSound.volume = 0.5;
@@ -18,6 +19,8 @@ function App() {
   const [bosses, setBosses] = useState<BossEstado[]>(cargarBosses());
   const [filtro, setFiltro] = useState<'Todos' | 'Boss' | 'Miniboss'>('Todos');
   const [busqueda, setBusqueda] = useState('');
+  const [orden, setOrden] = useState<'original' | 'nombre'>('original');
+
 
   const actualizarBoss = (id: string, data: Partial<BossEstado>) => {
     setBosses(prev => {
@@ -43,7 +46,8 @@ function App() {
       defeated: false,
       tiempoInicio: null,
       tiempoTotal: null,
-      corriendo: false
+      corriendo: false,
+      pinned: false
     })),
     ...jsonData.Miniboss.map((b, idx) => ({
       ...b,
@@ -52,7 +56,8 @@ function App() {
       defeated: false,
       tiempoInicio: null,
       tiempoTotal: null,
-      corriendo: false
+      corriendo: false,
+      pinned:false,
     }))
   ];
 
@@ -116,11 +121,22 @@ const toggleDefeated = (id: string) => {
   const total = bosses.length;
   const progreso = Math.round((derrotados / total) * 100);
 
-  const bossesFiltrados = bosses.filter(b => {
-    const coincideTipo = filtro === 'Todos' || b.tipo === filtro;
-    const coincideBusqueda = b.nombre.toLowerCase().includes(busqueda.toLowerCase());
-    return coincideTipo && coincideBusqueda;
-  });
+  const bossesFiltrados = useMemo(() => {
+  return bosses
+    .filter(b => filtro === 'Todos' || b.tipo === filtro)
+    .filter(b => b.nombre.toLowerCase().includes(busqueda.toLowerCase()))
+    .sort((a, b) => {
+      if (a.pinned && !b.pinned) return -1;
+      if (!a.pinned && b.pinned) return 1;
+
+      if (orden === 'nombre') {
+        return a.nombre.localeCompare(b.nombre);
+      }
+
+      return 0; 
+    });
+}, [bosses, filtro, busqueda, orden]);
+
 
   const conteoPorTipo = bosses.reduce(
   (acc, b) => {
@@ -180,14 +196,14 @@ const toggleDefeated = (id: string) => {
         </div>
         <motion.span
           key={tiempoGlobal}
-          initial={{ scale: 0.9, opacity: 0.5 }}
+          initial={{ scale: 0.9, opacity: 0.3 }}
           animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
           className="countdown justify-center sm:text-2xl text-lg text-neutral-content font-mono mt-2"
         >
           {formatearTiempo(tiempoGlobal)}
         </motion.span>
-        <div className="w-full flex justify-between items-center">  
+        <div className="w-full flex justify-between items-center mb-1">  
           <div className="text-warning/90 w-full">
             <p class="font-semibold text-success sm:text-lg text-sm">
               {derrotados} / {total} - Jefes derrotados {progreso}%
@@ -195,7 +211,7 @@ const toggleDefeated = (id: string) => {
             <p className="text-sm">{conteoPorTipo.bossesDerrotados} / {conteoPorTipo.bossesTotales} - Bosses </p>
             <p className="text-sm">{conteoPorTipo.minibossesDerrotados} / {conteoPorTipo.minibossesTotales} - Minibosses</p>
           </div>
-          <label className="input m-2">
+          <label className="input m-1 self-end">
             <svg className="h-[1em] opacity-80" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <g
                 strokeLinejoin="round"
@@ -218,7 +234,15 @@ const toggleDefeated = (id: string) => {
           </label>
         </div>
       </div>
-      <div className="mb-4 flex justify-center">
+      <div className="mb-4 mx-4 flex justify-between items-center ">
+        <select
+          defaultValue={"original"}
+          className={"select w-fit text-sm bg-base-100 self-end"}
+           onChange={(e) => setOrden((e.target as HTMLSelectElement).value as 'original' | 'nombre')}
+          >
+          <option value={"original"}>Historia</option>
+          <option value={"nombre"}>Nombre</option>
+        </select>
         <ul className="menu bg-base-200 menu-horizontal rounded-box self-center">
         {['Todos', 'Boss', 'Miniboss'].map(tipo => (
           <li>
@@ -238,10 +262,10 @@ const toggleDefeated = (id: string) => {
           <motion.div
             key={b.id}
             layout
-            initial={{ opacity: 0, y: 10, scale: 0.90 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -10, scale: 0.90 }}
-            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
           >
             <BossCard boss={b} onToggle={toggleDefeated} onUpdateBoss={actualizarBoss} />
           </motion.div>

@@ -22,5 +22,6 @@ export interface BossEstado extends BossData {
   tiempoInicio?: number | null;
   tiempoTotal?: number | null;
   corriendo?: boolean;
+  pinned?:boolean;
 }
 
