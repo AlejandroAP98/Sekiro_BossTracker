@@ -161,33 +161,32 @@ const toggleDefeated = (id: string) => {
  
   return (
     <div className="mx-auto w-full ">
-      <div className="flex flex-col px-4 w-full sm:gap-4 gap-1 mt-4">
-        <div className="w-full h-3 bg-base-300 rounded">
-          <motion.div
-            className={`h-full rounded ${
-              progreso < 50
-                ? 'bg-success'
-                : progreso < 80
-                ? 'bg-primary'
-                : 'bg-success'
-            }`}
-            initial={{ width: 0 }}
-            animate={{ width: `${progreso}%` }}
-            transition={{ duration: 1 }}
-          />
-
+      <div className="flex flex-col px-4 w-full sm:gap-4 gap-1 mt-4 ">
+        <div className="flex flex-col fixed top-0 bg-base-100 z-10 w-full justify-center items-center ">
+          <div className="w-full h-3 bg-base-300 rounded mt-2">
+            <motion.div
+              className={`h-full rounded ${
+                progreso < 50
+                  ? 'bg-success'
+                  : progreso < 80
+                  ? 'bg-primary'
+                  : 'bg-success'
+              }`}
+              initial={{ width: 0 }}
+              animate={{ width: `${progreso}%` }}
+              transition={{ duration: 1 }}
+            />
+          </div>
         </div>
-
         <motion.span
           key={tiempoGlobal}
           initial={{ scale: 0.9, opacity: 0.5 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="countdown justify-center sm:text-2xl text-lg text-neutral-content font-mono"
+          className="countdown justify-center sm:text-2xl text-lg text-neutral-content font-mono mt-2"
         >
           {formatearTiempo(tiempoGlobal)}
         </motion.span>
-
         <div className="w-full flex justify-between items-center">  
           <div className="text-warning/90 w-full">
             <p class="font-semibold text-success sm:text-lg text-sm">
