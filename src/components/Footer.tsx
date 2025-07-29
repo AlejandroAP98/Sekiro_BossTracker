@@ -25,7 +25,7 @@ export default function Footer({ bosses, setBosses }: FooterProps) {
   };
 
   return (
-    <footer className="footer sm:footer-horizontal bg-base-200 text-neutral-content items-center p-4 ">
+    <footer className="footer sm:footer-horizontal bg-base-200 text-neutral-content items-center p-4 min-h-auto">
       <aside className="grid-flow-col items-center  justify-between bg-bas-200 w-full">
         <p className="text-sm">
           Información extraída de{" "}

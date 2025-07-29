@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'preact/hooks';
+import { useEffect, useRef, useState } from 'preact/hooks';
 import data from './data/bosses_sekiro_completo.json';
 import { cargarBosses, guardarBossesEnStorage } from './utils/LocalStorage';
 import type { BossEstado, BossData } from './types/Boss';
@@ -20,7 +20,7 @@ function App() {
   const [filtro, setFiltro] = useState<'Boss' | 'Miniboss' | 'Derrotados' | 'Faltantes' | 'Fijados'>('Boss');
   const [busqueda, setBusqueda] = useState('');
   const [orden, setOrden] = useState<'original' | 'nombre' | 'tiempo'>('original');
-
+  const [mostrarBotonArriba, setMostrarBotonArriba] = useState(false);
 
   const actualizarBoss = (id: string, data: Partial<BossEstado>) => {
     setBosses(prev => {
@@ -185,7 +185,34 @@ const toggleDefeated = (id: string) => {
     return total;
   }, 0);
 
- 
+  
+  const volverArriba = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
+  const scrollAnterior = useRef(0);
+  
+  useEffect(() => {
+  const manejarScroll = () => {
+    const scrollActual = window.scrollY;
+
+    // Mostrar solo si se está desplazando hacia arriba y se ha bajado al menos 100px
+    if (scrollActual < scrollAnterior.current && scrollActual > 100) {
+      setMostrarBotonArriba(true);
+    } else {
+      setMostrarBotonArriba(false);
+    }
+
+    scrollAnterior.current = scrollActual;
+  };
+
+  window.addEventListener('scroll', manejarScroll);
+  return () => window.removeEventListener('scroll', manejarScroll);
+}, []);
+
   return (
     <div className="mx-auto w-full ">
       <div className="flex flex-col px-4 w-full gap-1 mt-1 ">
@@ -203,13 +230,18 @@ const toggleDefeated = (id: string) => {
             transition={{ duration: 1 }}
           />
         </div>
+
         <div className="flex w-full">
           <div className="mx-1 text-warning/90 w-full">
-            <p class="font-semibold text-success sm:text-lg text-sm">
-                {derrotados} / {total} - Jefes derrotados {progreso}%
+            <p className="font-semibold text-success sm:text-lg text-sm">
+              {derrotados} / {total} - Jefes derrotados {progreso}%
             </p>
-            <p className="text-sm">{conteoPorTipo.bossesDerrotados} / {conteoPorTipo.bossesTotales} - Bosses </p>
-            <p className="text-sm">{conteoPorTipo.minibossesDerrotados} / {conteoPorTipo.minibossesTotales} - Minibosses</p>
+            <p className="text-sm">
+              {conteoPorTipo.bossesDerrotados} / {conteoPorTipo.bossesTotales} - Bosses
+            </p>
+            <p className="text-sm">
+              {conteoPorTipo.minibossesDerrotados} / {conteoPorTipo.minibossesTotales} - Minibosses
+            </p>
           </div>
           <motion.span
             key={tiempoGlobal}
@@ -221,16 +253,19 @@ const toggleDefeated = (id: string) => {
             {formatearTiempo(tiempoGlobal)}
           </motion.span>
         </div>
+
         <div className="w-full flex justify-between items-center mb-2">
           <select
             defaultValue={"original"}
             className={"select select-md w-fit text-sm bg-base-100"}
-            onChange={(e) => setOrden((e.target as HTMLSelectElement).value as 'original' | 'nombre' | 'tiempo')}
-            >
+            onChange={(e) =>
+              setOrden((e.target as HTMLSelectElement).value as 'original' | 'nombre' | 'tiempo')
+            }
+          >
             <option value={"original"}>Historia</option>
             <option value={"nombre"}>Nombre</option>
             <option value={"tiempo"}>Mis tiempos</option>
-          </select>  
+          </select>
           <label className="input m-1 self-end">
             <svg className="h-[1em] opacity-80" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <g
@@ -254,36 +289,66 @@ const toggleDefeated = (id: string) => {
           </label>
         </div>
       </div>
+
       <div className="mb-2 mx-4 flex justify-center items-center">
-        <ul className="menu menu-sm bg-base-200 menu-horizontal rounded-box self-center">
-        {['Boss', 'Miniboss', 'Derrotados', 'Faltantes' ,'Fijados'].map(tipo => (
-          <li>
-            <a
-              className={`cursor-pointer ${filtro === tipo ? 'text-primary font-bold' : ''}`}
-              onClick={() => setFiltro(tipo as 'Boss' | 'Miniboss' | 'Derrotados' | 'Faltantes' | 'Fijados')}
-            >
-              {tipo}
-            </a>
-          </li>
-        ))}
+        <ul className="menu menu-sm sm:menu-md bg-base-200 menu-horizontal rounded-box self-center">
+          {['Boss', 'Miniboss', 'Derrotados', 'Faltantes', 'Fijados'].map((tipo) => (
+            <li key={tipo}>
+              <a
+                className={`cursor-pointer ${filtro === tipo ? 'text-primary font-bold' : ''}`}
+                onClick={() =>
+                  setFiltro(tipo as 'Boss' | 'Miniboss' | 'Derrotados' | 'Faltantes' | 'Fijados')
+                }
+              >
+                {tipo}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-4 mb-4 min-h-svw">
-       <AnimatePresence mode="popLayout">
-        {bossesFiltrados.map(b => (
-          <motion.div
-            key={b.id}
-            layout
-            initial={{ opacity: 0, y: 10 }}
+      <AnimatePresence>
+        {mostrarBotonArriba && (
+          <motion.a
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3, ease: 'easeOut' }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.3 }}
+            className="btn btn-sm btn-bg-base-300 btn-circle fixed bottom-4 left-4  z-50 hover:bg-base-100 shadow-md "
+            onClick={volverArriba}
           >
-            <BossCard boss={b} onToggle={toggleDefeated} onUpdateBoss={actualizarBoss} />
-          </motion.div>
-        ))}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              fill="currentColor"
+              className="bi bi-arrow-up"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fillRule="evenodd"
+                d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5"
+              />
+            </svg>
+          </motion.a>
+        )}
       </AnimatePresence>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-4 mb-4 min-h-90 w-full">
+        <AnimatePresence mode="popLayout">
+          {bossesFiltrados.map((b) => (
+            <motion.div
+              key={b.id}
+              layout
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+            >
+              <BossCard boss={b} onToggle={toggleDefeated} onUpdateBoss={actualizarBoss} />
+            </motion.div>
+          ))}
+        </AnimatePresence>
       </div>
+
       <Footer bosses={bosses} setBosses={setBosses} />
     </div>
   );
