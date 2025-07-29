@@ -17,9 +17,9 @@ interface JSONBosses {
 
 function App() {
   const [bosses, setBosses] = useState<BossEstado[]>(cargarBosses());
-  const [filtro, setFiltro] = useState<'Todos' | 'Boss' | 'Miniboss'>('Todos');
+  const [filtro, setFiltro] = useState<'Boss' | 'Miniboss' | 'Derrotados' | 'Faltantes' | 'Fijados'>('Boss');
   const [busqueda, setBusqueda] = useState('');
-  const [orden, setOrden] = useState<'original' | 'nombre'>('original');
+  const [orden, setOrden] = useState<'original' | 'nombre' | 'tiempo'>('original');
 
 
   const actualizarBoss = (id: string, data: Partial<BossEstado>) => {
@@ -123,7 +123,14 @@ const toggleDefeated = (id: string) => {
 
   const bossesFiltrados = useMemo(() => {
   return bosses
-    .filter(b => filtro === 'Todos' || b.tipo === filtro)
+    .filter(b => 
+    {
+      if (filtro === 'Boss') return b.tipo === 'Boss';
+      if (filtro === 'Miniboss') return b.tipo === 'Miniboss';
+      if (filtro === 'Derrotados') return b.defeated;
+      if (filtro === 'Faltantes') return !b.defeated;
+      if (filtro === 'Fijados') return b.pinned;
+    })
     .filter(b => b.nombre.toLowerCase().includes(busqueda.toLowerCase()))
     .sort((a, b) => {
       if (a.pinned && !b.pinned) return -1;
@@ -131,6 +138,10 @@ const toggleDefeated = (id: string) => {
 
       if (orden === 'nombre') {
         return a.nombre.localeCompare(b.nombre);
+      }
+
+      if (orden === 'tiempo') {
+        return (b.tiempoTotal ?? 0) - (a.tiempoTotal ?? 0);
       }
 
       return 0; 
@@ -177,40 +188,49 @@ const toggleDefeated = (id: string) => {
  
   return (
     <div className="mx-auto w-full ">
-      <div className="flex flex-col px-4 w-full sm:gap-4 gap-1 mt-4 ">
-        <div className="flex flex-col fixed top-0 bg-base-100 z-10 w-full justify-center items-center ">
-          <div className="w-full h-3 bg-base-300 rounded mt-2">
-            <motion.div
-              className={`h-full rounded ${
-                progreso < 50
-                  ? 'bg-success'
-                  : progreso < 80
-                  ? 'bg-primary'
-                  : 'bg-success'
-              }`}
-              initial={{ width: 0 }}
-              animate={{ width: `${progreso}%` }}
-              transition={{ duration: 1 }}
-            />
-          </div>
+      <div className="flex flex-col px-4 w-full gap-1 mt-1 ">
+        <div className="w-full mx-0.5 h-3 bg-base-300 rounded bg-">
+          <motion.div
+            className={`h-full rounded ${
+              progreso < 50
+                ? 'bg-success'
+                : progreso < 80
+                ? 'bg-primary'
+                : 'bg-success'
+            }`}
+            initial={{ width: 0 }}
+            animate={{ width: `${progreso}%` }}
+            transition={{ duration: 1 }}
+          />
         </div>
-        <motion.span
-          key={tiempoGlobal}
-          initial={{ scale: 0.9, opacity: 0.3 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.7, ease: 'easeOut' }}
-          className="countdown justify-center sm:text-2xl text-lg text-neutral-content font-mono mt-2"
-        >
-          {formatearTiempo(tiempoGlobal)}
-        </motion.span>
-        <div className="w-full flex justify-between items-center mb-1">  
-          <div className="text-warning/90 w-full">
+        <div className="flex w-full">
+          <div className="mx-1 text-warning/90 w-full">
             <p class="font-semibold text-success sm:text-lg text-sm">
-              {derrotados} / {total} - Jefes derrotados {progreso}%
+                {derrotados} / {total} - Jefes derrotados {progreso}%
             </p>
             <p className="text-sm">{conteoPorTipo.bossesDerrotados} / {conteoPorTipo.bossesTotales} - Bosses </p>
             <p className="text-sm">{conteoPorTipo.minibossesDerrotados} / {conteoPorTipo.minibossesTotales} - Minibosses</p>
           </div>
+          <motion.span
+            key={tiempoGlobal}
+            initial={{ scale: 0.9, opacity: 0.3 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+            className="countdown justify-center items-center sm:text-2xl text-xl text-neutral-content font-mono"
+          >
+            {formatearTiempo(tiempoGlobal)}
+          </motion.span>
+        </div>
+        <div className="w-full flex justify-between items-center mb-2">
+          <select
+            defaultValue={"original"}
+            className={"select select-md w-fit text-sm bg-base-100"}
+            onChange={(e) => setOrden((e.target as HTMLSelectElement).value as 'original' | 'nombre' | 'tiempo')}
+            >
+            <option value={"original"}>Historia</option>
+            <option value={"nombre"}>Nombre</option>
+            <option value={"tiempo"}>Mis tiempos</option>
+          </select>  
           <label className="input m-1 self-end">
             <svg className="h-[1em] opacity-80" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <g
@@ -234,21 +254,13 @@ const toggleDefeated = (id: string) => {
           </label>
         </div>
       </div>
-      <div className="mb-4 mx-4 flex justify-between items-center ">
-        <select
-          defaultValue={"original"}
-          className={"select w-fit text-sm bg-base-100 self-end"}
-           onChange={(e) => setOrden((e.target as HTMLSelectElement).value as 'original' | 'nombre')}
-          >
-          <option value={"original"}>Historia</option>
-          <option value={"nombre"}>Nombre</option>
-        </select>
-        <ul className="menu bg-base-200 menu-horizontal rounded-box self-center">
-        {['Todos', 'Boss', 'Miniboss'].map(tipo => (
+      <div className="mb-2 mx-4 flex justify-center items-center">
+        <ul className="menu menu-sm bg-base-200 menu-horizontal rounded-box self-center">
+        {['Boss', 'Miniboss', 'Derrotados', 'Faltantes' ,'Fijados'].map(tipo => (
           <li>
             <a
               className={`cursor-pointer ${filtro === tipo ? 'text-primary font-bold' : ''}`}
-              onClick={() => setFiltro(tipo as 'Todos' | 'Boss' | 'Miniboss')}
+              onClick={() => setFiltro(tipo as 'Boss' | 'Miniboss' | 'Derrotados' | 'Faltantes' | 'Fijados')}
             >
               {tipo}
             </a>
@@ -256,7 +268,7 @@ const toggleDefeated = (id: string) => {
         ))}
         </ul>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-4 mb-4">
        <AnimatePresence mode="popLayout">
         {bossesFiltrados.map(b => (
           <motion.div
