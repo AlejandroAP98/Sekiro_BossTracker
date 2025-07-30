@@ -108,3 +108,4 @@ export async function consultarUltimaActualizacion(): Promise<string | null> {
   }
   return null;
 }
+
