@@ -13,7 +13,7 @@ const BossCard: FunctionalComponent<BossCardProps> = ({ boss, onToggle, onUpdate
   const [tiempo, setTiempo] = useState<number >(0);
   
   useEffect(() => {
-    let intervalo: number | undefined;
+    let intervalo: ReturnType<typeof setInterval> | undefined;
 
     if (boss.corriendo && boss.tiempoInicio) {
       intervalo = setInterval(() => {

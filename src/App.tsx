@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import data from './data/bosses_sekiro_completo.json';
-import { cargarBosses, guardarBossesEnStorage } from './utils/LocalStorage';
+import { cargarBossesEnStorage, guardarBossesEnStorage } from './utils/LocalStorage';
 import type { BossEstado, BossData } from './types/Boss';
 import BossCard from './components/BossCard';
 import Footer from './components/Footer';
 import confetti from 'canvas-confetti'; 
 import { AnimatePresence, motion } from 'framer-motion';
 import { useMemo } from 'preact/hooks';
+import { getUsername } from './utils/auth';
+import Login from './components/Login';
 
 const efectSound = new Audio('/sounds/efect.mp3');
 efectSound.volume = 0.5;
@@ -16,11 +18,12 @@ interface JSONBosses {
 }
 
 function App() {
-  const [bosses, setBosses] = useState<BossEstado[]>(cargarBosses());
+  const [bosses, setBosses] = useState<BossEstado[]>(cargarBossesEnStorage());
   const [filtro, setFiltro] = useState<'Boss' | 'Miniboss' | 'Derrotados' | 'Faltantes' | 'Fijados'>('Boss');
   const [busqueda, setBusqueda] = useState('');
   const [orden, setOrden] = useState<'original' | 'nombre' | 'tiempo'>('original');
   const [mostrarBotonArriba, setMostrarBotonArriba] = useState(false);
+
 
   const actualizarBoss = (id: string, data: Partial<BossEstado>) => {
     setBosses(prev => {
@@ -61,7 +64,7 @@ function App() {
     }))
   ];
 
-  const guardados = cargarBosses();
+  const guardados = cargarBossesEnStorage();
   
   const fusionados = bossesBase.map(b => {
     const existente = guardados.find(g => g.id === b.id);
@@ -211,7 +214,15 @@ const toggleDefeated = (id: string) => {
 
   window.addEventListener('scroll', manejarScroll);
   return () => window.removeEventListener('scroll', manejarScroll);
-}, []);
+  }, []);
+
+  const [username, setUsername] = useState<string | null>(getUsername());
+
+  if(!username) {
+    return (
+      <Login onLogin={setUsername} />
+    );
+  }
 
   return (
     <div className="mx-auto w-full ">
@@ -332,7 +343,7 @@ const toggleDefeated = (id: string) => {
           </motion.a>
         )}
       </AnimatePresence>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-4 mb-4 min-h-90 w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-4 mb-4 sm:min-h-84 min-h-100 w-full">
         <AnimatePresence mode="popLayout">
           {bossesFiltrados.map((b) => (
             <motion.div
