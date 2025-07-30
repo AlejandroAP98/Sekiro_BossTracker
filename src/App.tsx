@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import data from './data/bosses_sekiro_completo.json';
-import { cargarBossesEnStorage, guardarBossesEnStorage } from './utils/LocalStorage';
+import { cargarBossesEnStorage, guardarBossesEnStorage } from './utils/storage';
 import type { BossEstado, BossData } from './types/Boss';
 import BossCard from './components/BossCard';
 import Footer from './components/Footer';
@@ -23,8 +23,7 @@ function App() {
   const [busqueda, setBusqueda] = useState('');
   const [orden, setOrden] = useState<'original' | 'nombre' | 'tiempo'>('original');
   const [mostrarBotonArriba, setMostrarBotonArriba] = useState(false);
-
-
+  
   const actualizarBoss = (id: string, data: Partial<BossEstado>) => {
     setBosses(prev => {
       const actualizados = prev.map(b => {
@@ -241,7 +240,6 @@ const toggleDefeated = (id: string) => {
             transition={{ duration: 1 }}
           />
         </div>
-
         <div className="flex w-full">
           <div className="mx-1 text-warning/90 w-full">
             <p className="font-semibold text-success sm:text-lg text-sm">
@@ -254,15 +252,20 @@ const toggleDefeated = (id: string) => {
               {conteoPorTipo.minibossesDerrotados} / {conteoPorTipo.minibossesTotales} - Minibosses
             </p>
           </div>
-          <motion.span
-            key={tiempoGlobal}
-            initial={{ scale: 0.9, opacity: 0.3 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
-            className="countdown justify-center items-center sm:text-2xl text-xl text-neutral-content font-mono"
-          >
-            {formatearTiempo(tiempoGlobal)}
-          </motion.span>
+          <div className="flex flex-col items-center justify-center gap-1">
+            <span className="text-xs text-neutral-content">
+              {getUsername() ? getUsername(): null}
+            </span>
+            <motion.span
+              key={tiempoGlobal}
+              initial={{ scale: 0.9, opacity: 0.3 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.7, ease: 'easeOut' }}
+              className="countdown justify-center items-center sm:text-3xl text-xl text-neutral-content font-mono"
+              >
+              {formatearTiempo(tiempoGlobal)}
+            </motion.span>
+          </div>
         </div>
 
         <div className="w-full flex justify-between items-center mb-2">
@@ -359,7 +362,6 @@ const toggleDefeated = (id: string) => {
           ))}
         </AnimatePresence>
       </div>
-
       <Footer bosses={bosses} setBosses={setBosses} />
     </div>
   );

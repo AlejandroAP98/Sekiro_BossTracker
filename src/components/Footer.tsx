@@ -1,6 +1,6 @@
 import type { BossEstado } from "../types/Boss";
 import { useState, useEffect } from "preact/hooks";
-import { guardarBossesEnStorage, subirDatosAFirebase, descargarDatosDesdeFirebase, consultarUltimaActualizacion } from "../utils/LocalStorage";
+import { guardarBossesEnStorage, subirDatosAFirebase, descargarDatosDesdeFirebase, consultarUltimaActualizacion } from "../utils/storage";
 
 interface FooterProps {
   bosses: BossEstado[];
@@ -33,24 +33,24 @@ export default function Footer({ bosses, setBosses }: FooterProps) {
     setUltimaActualizacion(fecha);
     alert('Datos cargados exitosamente.');    
   };
-
-const handleDescargarDatos = async () => {
-  if(confirm('¿Estás seguro de descargar tus datos? Esto sobreescribirá tus datos actuales. HAZLO SOLO SI ESTÁS EN UN NUEVO DISPOSITIVO O SI BORRASTE LOS DATOS DE TÚ NAVEGADOR.')){
-    const datos = await descargarDatosDesdeFirebase();
-    if (datos) {
-      const fusionados = bosses.map(b => {
-        const remoto = datos.bosses.find(r => r.id === b.id);
-        return { ...b, ...remoto };
-      });
-      setBosses(fusionados);
-      guardarBossesEnStorage(fusionados);
-      setUltimaActualizacion(datos.ultimaActualizacion);
-      alert('Datos descargados con éxito.');
-    } else {
-      alert('No se encontraron datos en Firebase para este usuario.');
+    
+  const handleDescargarDatos = async () => {
+    if(confirm('¿Estás seguro de descargar tus datos? Esto sobreescribirá tus datos actuales. HAZLO SOLO SI ESTÁS EN UN NUEVO DISPOSITIVO O SI BORRASTE LOS DATOS DE TÚ NAVEGADOR.')){
+      const datos = await descargarDatosDesdeFirebase();
+      if (datos) {
+        const fusionados = bosses.map(b => {
+          const remoto = datos.bosses.find(r => r.id === b.id);
+          return { ...b, ...remoto };
+        });
+        setBosses(fusionados);
+        guardarBossesEnStorage(fusionados);
+        setUltimaActualizacion(datos.ultimaActualizacion);
+        alert('Datos descargados con éxito.');
+      } else {
+        alert('No se encontraron datos en Firebase para este usuario.');
+      }
     }
-  }
-};
+  };
 
   useEffect(() => {
     consultarUltimaActualizacion().then((fecha) => {
